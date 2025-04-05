@@ -218,7 +218,10 @@ export class Application {
 
   createWindow() {
     this.browserWindow = new BrowserWindow({
-      webPreferences: { nodeIntegration: true },
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false
+      },
       //titleBarStyle: 'hidden',
       height: 800, // This is adjusted later with window.setSize
       resizable: false,
@@ -232,12 +235,16 @@ export class Application {
       // Don't show the window until it's ready, this prevents any white flickering
       show: false,
     });
-    if (this.isDevelopment) {
-      this.browserWindow.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
-      this.browserWindow.resizable = true;
-    } else {
-      this.browserWindow.loadFile(path.join(__dirname, 'index.html'));
-    }
+
+    // Force Deployment Mode
+    this.browserWindow.loadFile(path.join(__dirname, 'index.html'));
+    // if (this.isDevelopment) {
+    //   this.browserWindow.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
+    //   this.browserWindow.resizable = true;
+    // } else {
+    //   this.browserWindow.loadFile(path.join(__dirname, 'index.html'));
+    //   // this.browserWindow.loadURL('app://./index.html');
+    // }
 
     // Handle window logic properly on macOS:
     // 1. App should not terminate if window has been closed
