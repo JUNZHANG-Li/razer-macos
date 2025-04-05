@@ -12,7 +12,7 @@ export default function Brightness({ title, currentBrightness, handleBrightnessC
   return (
     <Slider
       title={title}
-      step={25}
+      step={1}
       className='horizontal-slider'
       thumbClassName='slider-thumb'
       trackClassName='slider-track'
