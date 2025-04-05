@@ -426,129 +426,40 @@ function getFeatureWaveSimple(application, device, feature) {
 
 function getFeatureMouseBrightness(application, device, feature) {
 
+  if (!feature.configuration.enabledMatrix) {
+    return {
+      label: 'Brightness (' + device.getBrightnessMatrix() + '%)',
+      submenu: [],
+    };
+  }
+
   const submenu = [
-    feature.configuration.enabledMatrix ? {
-      label: 'All (' + device.getBrightnessMatrix() + '%)',
-      submenu: [
-        {
-          label: 'On', click() {
-            device.setBrightnessMatrix(100);
-            application.refreshTray();
-          },
-        },
-        {
-          label: 'Low', click() {
-            device.setBrightnessMatrix(25);
-            application.refreshTray();
-          },
-        },
-        {
-          label: 'Off', click() {
-            device.setBrightnessMatrix(0);
-            application.refreshTray();
-          },
-        },
-      ],
-    } : null,
-    feature.configuration.enabledLogo ? {
-      label: 'Logo (' + device.getBrightnessLogo() + '%)',
-      submenu: [
-        {
-          label: 'On', click() {
-            device.setBrightnessLogo(100);
-            application.refreshTray();
-          },
-        },
-        {
-          label: 'Low', click() {
-            device.setBrightnessLogo(25);
-            application.refreshTray();
-          },
-        },
-        {
-          label: 'Off', click() {
-            device.setBrightnessLogo(0);
-            application.refreshTray();
-          },
-        },
-      ],
-    } : null,
-    feature.configuration.enabledScroll ?
-      {
-        label: 'Scroll (' + device.getBrightnessScroll() + '%)',
-        submenu: [
-          {
-            label: 'On', click() {
-              device.setBrightnessScroll(100);
-              application.refreshTray();
-            },
-          },
-          {
-            label: 'Low', click() {
-              device.setBrightnessScroll(25);
-              application.refreshTray();
-            },
-          },
-          {
-            label: 'Off', click() {
-              device.setBrightnessScroll(0);
-              application.refreshTray();
-            },
-          },
-        ],
-      } : null,
-    feature.configuration.enabledLeft ?
-      {
-        label: 'Left (' + device.getBrightnessLeft() + '%)',
-        submenu: [
-          {
-            label: 'On', click() {
-              device.setBrightnessLeft(100);
-              application.refreshTray();
-            },
-          },
-          {
-            label: 'Low', click() {
-              device.setBrightnessLeft(25);
-              application.refreshTray();
-            },
-          },
-          {
-            label: 'Off', click() {
-              device.setBrightnessLeft(0);
-              application.refreshTray();
-            },
-          },
-        ],
-      } : null,
-    feature.configuration.enabledRight ?
-      {
-        label: 'Right (' + device.getBrightnessRight() + '%)',
-        submenu: [
-          {
-            label: 'On', click() {
-              device.setBrightnessRight(100);
-              application.refreshTray();
-            },
-          },
-          {
-            label: 'Low', click() {
-              device.setBrightnessRight(25);
-              application.refreshTray();
-            },
-          },
-          {
-            label: 'Off', click() {
-              device.setBrightnessRight(0);
-              application.refreshTray();
-            },
-          },
-        ],
-      } : null,
+    {
+      label: 'On', 
+      click() {
+        device.setBrightnessMatrix(100);
+        application.refreshTray();
+      },
+    },
+    {
+      label: 'Low', 
+      click() {
+        device.setBrightnessMatrix(25);
+        application.refreshTray();
+      },
+    },
+    {
+      label: 'Off', 
+      click() {
+        device.setBrightnessMatrix(0);
+        application.refreshTray();
+      },
+    },
   ];
 
   return {
-    label: 'Brightness',
+    // label: 'Brightness',
+    label: 'Brightness (' + device.getBrightnessMatrix() + '%)',
     submenu: submenu.filter(s => s!= null),
   };
 }
