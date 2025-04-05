@@ -437,6 +437,30 @@ function getFeatureMouseBrightness(application, device, feature) {
           },
         },
         {
+          label: '20%', click() {
+            device.setBrightnessMatrix(20);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '40%', click() {
+            device.setBrightnessMatrix(40);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '60%', click() {
+            device.setBrightnessMatrix(60);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '80%', click() {
+            device.setBrightnessMatrix(80);
+            application.refreshTray();
+          },
+        },
+        {
           label: '100%', click() {
             device.setBrightnessMatrix(100);
             application.refreshTray();
@@ -450,6 +474,30 @@ function getFeatureMouseBrightness(application, device, feature) {
         {
           label: '0%', click() {
             device.setBrightnessLogo(0);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '20%', click() {
+            device.setBrightnessLogo(20);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '40%', click() {
+            device.setBrightnessLogo(40);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '60%', click() {
+            device.setBrightnessLogo(60);
+            application.refreshTray();
+          },
+        },
+        {
+          label: '80%', click() {
+            device.setBrightnessLogo(80);
             application.refreshTray();
           },
         },
@@ -472,6 +520,30 @@ function getFeatureMouseBrightness(application, device, feature) {
             },
           },
           {
+            label: '20%', click() {
+              device.setBrightnessScroll(20);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '40%', click() {
+              device.setBrightnessScroll(40);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '60%', click() {
+              device.setBrightnessScroll(60);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '80%', click() {
+              device.setBrightnessScroll(80);
+              application.refreshTray();
+            },
+          },
+          {
             label: '100%', click() {
               device.setBrightnessScroll(100);
               application.refreshTray();
@@ -490,6 +562,30 @@ function getFeatureMouseBrightness(application, device, feature) {
             },
           },
           {
+            label: '20%', click() {
+              device.setBrightnessLeft(20);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '40%', click() {
+              device.setBrightnessLeft(40);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '60%', click() {
+              device.setBrightnessLeft(60);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '80%', click() {
+              device.setBrightnessLeft(80);
+              application.refreshTray();
+            },
+          },
+          {
             label: '100%', click() {
               device.setBrightnessLeft(100);
               application.refreshTray();
@@ -504,6 +600,30 @@ function getFeatureMouseBrightness(application, device, feature) {
           {
             label: '0%', click() {
               device.setBrightnessRight(0);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '20%', click() {
+              device.setBrightnessRight(20);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '40%', click() {
+              device.setBrightnessRight(40);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '60%', click() {
+              device.setBrightnessRight(60);
+              application.refreshTray();
+            },
+          },
+          {
+            label: '80%', click() {
+              device.setBrightnessRight(80);
               application.refreshTray();
             },
           },
