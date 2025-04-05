@@ -437,6 +437,12 @@ function getFeatureMouseBrightness(application, device, feature) {
           },
         },
         {
+          label: 'Low', click() {
+            device.setBrightnessMatrix(25);
+            application.refreshTray();
+          },
+        },
+        {
           label: 'Off', click() {
             device.setBrightnessMatrix(0);
             application.refreshTray();
@@ -450,6 +456,12 @@ function getFeatureMouseBrightness(application, device, feature) {
         {
           label: 'On', click() {
             device.setBrightnessLogo(100);
+            application.refreshTray();
+          },
+        },
+        {
+          label: 'Low', click() {
+            device.setBrightnessLogo(25);
             application.refreshTray();
           },
         },
@@ -472,6 +484,12 @@ function getFeatureMouseBrightness(application, device, feature) {
             },
           },
           {
+            label: 'Low', click() {
+              device.setBrightnessScroll(25);
+              application.refreshTray();
+            },
+          },
+          {
             label: 'Off', click() {
               device.setBrightnessScroll(0);
               application.refreshTray();
@@ -490,6 +508,12 @@ function getFeatureMouseBrightness(application, device, feature) {
             },
           },
           {
+            label: 'Low', click() {
+              device.setBrightnessLeft(25);
+              application.refreshTray();
+            },
+          },
+          {
             label: 'Off', click() {
               device.setBrightnessLeft(0);
               application.refreshTray();
@@ -504,6 +528,12 @@ function getFeatureMouseBrightness(application, device, feature) {
           {
             label: 'On', click() {
               device.setBrightnessRight(100);
+              application.refreshTray();
+            },
+          },
+          {
+            label: 'Low', click() {
+              device.setBrightnessRight(25);
               application.refreshTray();
             },
           },
