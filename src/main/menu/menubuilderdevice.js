@@ -428,92 +428,57 @@ function getFeatureMouseBrightness(application, device, feature) {
 
   const submenu = [
     feature.configuration.enabledMatrix ? {
-      label: 'All (' + device.getBrightnessMatrix() + '%)',
-      submenu: [
-        {
-          label: '0%', click() {
-            device.setBrightnessMatrix(0);
-            application.refreshTray();
-          },
+      label: `Logo (${device.getBrightnessMatrix()}%)`,
+      submenu: [0, 20, 40, 60, 80, 100].map(level => ({
+        label: `${level}%`,
+        click() {
+          device.setBrightnessMatrix(level);
+          application.refreshTray();
         },
-        {
-          label: '100%', click() {
-            device.setBrightnessMatrix(100);
-            application.refreshTray();
-          },
-        },
-      ],
+      })),
     } : null,
     feature.configuration.enabledLogo ? {
-      label: 'Logo (' + device.getBrightnessLogo() + '%)',
-      submenu: [
-        {
-          label: '0%', click() {
-            device.setBrightnessLogo(0);
-            application.refreshTray();
-          },
+      label: `Logo (${device.getBrightnessLogo()}%)`,
+      submenu: [0, 20, 40, 60, 80, 100].map(level => ({
+        label: `${level}%`,
+        click() {
+          device.setBrightnessLogo(level);
+          application.refreshTray();
         },
-        {
-          label: '100%', click() {
-            device.setBrightnessLogo(100);
-            application.refreshTray();
-          },
-        },
-      ],
+      })),
     } : null,
     feature.configuration.enabledScroll ?
       {
-        label: 'Scroll (' + device.getBrightnessScroll() + '%)',
-        submenu: [
-          {
-            label: '0%', click() {
-              device.setBrightnessScroll(0);
-              application.refreshTray();
-            },
+        label: `Logo (${device.getBrightnessScroll()}%)`,
+        submenu: [0, 20, 40, 60, 80, 100].map(level => ({
+          label: `${level}%`,
+          click() {
+            device.setBrightnessScroll(level);
+            application.refreshTray();
           },
-          {
-            label: '100%', click() {
-              device.setBrightnessScroll(100);
-              application.refreshTray();
-            },
-          },
-        ],
+        })),
       } : null,
     feature.configuration.enabledLeft ?
       {
-        label: 'Left (' + device.getBrightnessLeft() + '%)',
-        submenu: [
-          {
-            label: '0%', click() {
-              device.setBrightnessLeft(0);
-              application.refreshTray();
-            },
+        label: `Logo (${device.getBrightnessLeft()}%)`,
+        submenu: [0, 20, 40, 60, 80, 100].map(level => ({
+          label: `${level}%`,
+          click() {
+            device.setBrightnessLeft(level);
+            application.refreshTray();
           },
-          {
-            label: '100%', click() {
-              device.setBrightnessLeft(100);
-              application.refreshTray();
-            },
-          },
-        ],
+        })),
       } : null,
     feature.configuration.enabledRight ?
       {
-        label: 'Right (' + device.getBrightnessRight() + '%)',
-        submenu: [
-          {
-            label: '0%', click() {
-              device.setBrightnessRight(0);
-              application.refreshTray();
-            },
+        label: `Logo (${device.getBrightnessRight()}%)`,
+        submenu: [0, 20, 40, 60, 80, 100].map(level => ({
+          label: `${level}%`,
+          click() {
+            device.setBrightnessRight(level);
+            application.refreshTray();
           },
-          {
-            label: '100%', click() {
-              device.setBrightnessRight(100);
-              application.refreshTray();
-            },
-          },
-        ],
+        })),
       } : null,
   ];
 
@@ -522,3 +487,4 @@ function getFeatureMouseBrightness(application, device, feature) {
     submenu: submenu.filter(s => s!= null),
   };
 }
+
