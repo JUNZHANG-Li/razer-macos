@@ -428,7 +428,7 @@ function getFeatureMouseBrightness(application, device, feature) {
 
   const submenu = [
     feature.configuration.enabledMatrix ? {
-      label: `Logo (${device.getBrightnessMatrix()}%)`,
+      label: `All (${device.getBrightnessMatrix()}%)`,
       submenu: [0, 20, 40, 60, 80, 100].map(level => ({
         label: `${level}%`,
         click() {
@@ -449,7 +449,7 @@ function getFeatureMouseBrightness(application, device, feature) {
     } : null,
     feature.configuration.enabledScroll ?
       {
-        label: `Logo (${device.getBrightnessScroll()}%)`,
+        label: `Scroll (${device.getBrightnessScroll()}%)`,
         submenu: [0, 20, 40, 60, 80, 100].map(level => ({
           label: `${level}%`,
           click() {
@@ -460,7 +460,7 @@ function getFeatureMouseBrightness(application, device, feature) {
       } : null,
     feature.configuration.enabledLeft ?
       {
-        label: `Logo (${device.getBrightnessLeft()}%)`,
+        label: `Left (${device.getBrightnessLeft()}%)`,
         submenu: [0, 20, 40, 60, 80, 100].map(level => ({
           label: `${level}%`,
           click() {
@@ -471,11 +471,22 @@ function getFeatureMouseBrightness(application, device, feature) {
       } : null,
     feature.configuration.enabledRight ?
       {
-        label: `Logo (${device.getBrightnessRight()}%)`,
+        label: `Right (${device.getBrightnessRight()}%)`,
         submenu: [0, 20, 40, 60, 80, 100].map(level => ({
           label: `${level}%`,
           click() {
             device.setBrightnessRight(level);
+            application.refreshTray();
+          },
+        })),
+      } : null,
+    feature.configuration.enabledBase ?
+      {
+        label: `Base (${device.getBrightnessBase()}%)`,
+        submenu: [0, 20, 40, 60, 80, 100].map(level => ({
+          label: `${level}%`,
+          click() {
+            device.setBrightnessBase(level);
             application.refreshTray();
           },
         })),

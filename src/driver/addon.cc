@@ -492,6 +492,22 @@ void MouseSetRightBrightness(const Napi::CallbackInfo &info) {
     razer_attr_write_right_led_brightness(device.usbDevice, brightness);
 }
 
+Napi::Number MouseGetBaseBrightness(const Napi::CallbackInfo &info) {
+    Napi::Env env = info.Env();
+    RazerDevice device = getRazerDeviceFor(info);
+    ushort brightness = razer_attr_read_base_led_brightness(device.usbDevice);
+    return Napi::Number::New(env, brightness);
+}
+
+void MouseSetBaseBrightness(const Napi::CallbackInfo &info) {
+    RazerDevice device = getRazerDeviceFor(info);
+
+    Napi::Number brightness_number = info[1].ToNumber();
+    ushort brightness = brightness_number.Int32Value();
+
+    razer_attr_write_base_led_brightness(device.usbDevice, brightness);
+}
+
 /**
 * Mouse docks
 */
@@ -937,6 +953,8 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set("mouseSetLeftBrightness", Napi::Function::New(env, MouseSetLeftBrightness));
     exports.Set("mouseGetRightBrightness", Napi::Function::New(env, MouseGetRightBrightness));
     exports.Set("mouseSetRightBrightness", Napi::Function::New(env, MouseSetRightBrightness));
+    exports.Set("mouseGetBaseBrightness", Napi::Function::New(env, MouseGetBaseBrightness));
+    exports.Set("mouseSetBaseBrightness", Napi::Function::New(env, MouseSetBaseBrightness));
 
     exports.Set("mouseDockSetModeNone", Napi::Function::New(env, MouseDockSetModeNone));
     exports.Set("mouseDockSetModeBreathe", Napi::Function::New(env, MouseDockSetModeBreathe));

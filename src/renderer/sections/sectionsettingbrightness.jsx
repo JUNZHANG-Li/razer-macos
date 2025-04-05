@@ -93,6 +93,13 @@ export class SectionSettingBrightness extends SectionSettingBlock {
                     currentBrightness={this.deviceSelected.brightnessRight}
                     handleBrightnessChange={(value) => {this.updateMouseBrightness('right', value); }} />
         </div>}
+        {(this.mouseBrightnessFeature.configuration.enabledBase) &&
+        <div className={'settings-brightness'}>
+          <div>Base</div>
+        <Brightness title={"Adjust mouse base brightness"}
+                    currentBrightness={this.deviceSelected.brightnessBase}
+                    handleBrightnessChange={(value) => {this.updateMouseBrightness('base', value); }} />
+        </div>}
       </div>);
     }
   }

@@ -14,7 +14,8 @@
     {
       "mouseBrightness": {
         "enabledLeft": false,
-        "enabledRight": false
+        "enabledRight": false,
+        "enabledBase": true
       }
     }
   ]

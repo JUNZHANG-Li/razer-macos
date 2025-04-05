@@ -38,6 +38,9 @@ export class RazerDeviceMouse extends RazerDevice {
       if(featureMouseBrightness.configuration.enabledRight) {
         this.brightnessRight = this.addon.mouseGetRightBrightness(this.internalId);
       }
+      if(featureMouseBrightness.configuration.enabledBase) {
+        this.brightnessBase = this.addon.mouseGetBaseBrightness(this.internalId);
+      }
     }
 
     return super.init();
@@ -78,6 +81,9 @@ export class RazerDeviceMouse extends RazerDevice {
       if(featureMouseBrightness.configuration.enabledRight) {
         deviceState['brightnessRight'] = this.brightnessRight;
       }
+      if(featureMouseBrightness.configuration.enabledBase) {
+        deviceState['brightnessBase'] = this.brightnessBase;
+      }
     }
     return deviceState;
   }
@@ -109,6 +115,9 @@ export class RazerDeviceMouse extends RazerDevice {
       }
       if(featureMouseBrightness.configuration.enabledRight) {
         this.setBrightnessRight(state.brightnessRight);
+      }
+      if(featureMouseBrightness.configuration.enabledBase) {
+        this.setBrightnessBase(state.brightnessBase);
       }
     }
   }
@@ -198,6 +207,14 @@ export class RazerDeviceMouse extends RazerDevice {
   setBrightnessRight(brightness) {
     this.brightnessRight = brightness;
     this.addon.mouseSetRightBrightness(this.internalId, this.brightnessRight);
+  }
+
+  getBrightnessBase() {
+    return this.brightnessBase;
+  }
+  setBrightnessBase(brightness) {
+    this.brightnessBase = brightness;
+    this.addon.mouseSetBaseBrightness(this.internalId, this.brightnessBase);
   }
 
   getPollRate() {

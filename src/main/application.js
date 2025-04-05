@@ -146,7 +146,7 @@ export class Application {
     });
 
     // mouse brightness
-    ['Matrix','Logo', 'Scroll', 'Left', 'Right'].forEach(brightnessMouseIdentifier => {
+    ['Matrix','Logo', 'Scroll', 'Left', 'Right', 'Base'].forEach(brightnessMouseIdentifier => {
       ipcMain.on('update-mouse-' + brightnessMouseIdentifier.toLowerCase() + '-brightness', (_, arg) => {
         const { device, brightness } = arg;
         const currentDevice = this.razerApplication.deviceManager.getByInternalId(device.internalId);

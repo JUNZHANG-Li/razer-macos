@@ -12,7 +12,8 @@ export class FeatureMouseBrightness extends Feature {
       "enabledLogo": true,
       "enabledScroll": true,
       "enabledLeft": true,
-      "enabledRight": true
+      "enabledRight": true,
+      "enabledBase": false,
     };
   }
 }
